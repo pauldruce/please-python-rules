@@ -1,21 +1,23 @@
 name: Python rules
+
 on: [push, pull_request]
+
 jobs:
   test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         include:
-          - python-version: '3.7'
           - python-version: '3.8'
           - python-version: '3.9'
           - python-version: '3.10'
           - python-version: '3.11'
+          - python-version: '3.12'
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Setup python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
       - name: Set profile
@@ -26,7 +28,7 @@ jobs:
         run: ./pleasew test --profile ci --log_file plz-out/log/e2e.log -i e2e
       - name: Archive logs
         if: always()
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: logs
           path: |
