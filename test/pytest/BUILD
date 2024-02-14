@@ -35,3 +35,8 @@ python_test(
     name = "test_pytest_unicode",
     srcs = ["test_pytest_unicode.py"],
 )
+
+python_test(
+    name="test Python version is what we expect",
+    srcs =  ["test_python_version.py"]
+)
