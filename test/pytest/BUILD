@@ -37,6 +37,6 @@ python_test(
 )
 
 python_test(
-    name="test Python version is what we expect",
-    srcs =  ["test_python_version.py"]
+    name="test_Python_version_is_what_we_expect",
+    srcs =  ["test_python_version.py"],
 )
